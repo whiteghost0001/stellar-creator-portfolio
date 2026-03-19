@@ -200,7 +200,27 @@ stellar contract init --template basic
 - Include storage key documentation
 
 ## Testing
-
+### CLI checks
+1. Install Clippy (Rust):
+```bash
+rustup component add clippy
+```
+2. Frontend checks (Orbit-style lint):
+```bash
+pnpm run frontend:orbit-check
+```
+3. Backend checks (Clippy):
+```bash
+cd backend && cargo clippy --workspace --all-targets --all-features -- -D warnings
+```
+4. Smart contract checks (Clippy in contracts):
+```bash
+cd backend/contracts && cargo clippy --workspace --all-targets --all-features -- -D warnings
+```
+5. All CLI checks:
+```bash
+pnpm run cli-checks
+```
 ### Frontend Tests
 ```bash
 # Unit tests (coming soon)
